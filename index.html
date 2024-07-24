@@ -3,45 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title>Swiggy Form</title>
-    
     <link rel="stylesheet" href="styles.css" />
-    <!-- Google Tag Manager -->
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '3346230509006338');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3346230509006338&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WG9W8DM5');</script>
-<!-- End Google Tag Manager -->
+    <!-- Meta Pixel Code and Google Tag Manager scripts -->
+    <script>
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;
+        n=f.fbq=function(){
+          n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+        };
+        if(!f._fbq)f._fbq=n;
+        n.push=n.loaded=!0;
+        n.version='2.0';
+        n.queue=[];
+        t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)
+      }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '3346230509006338');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3346230509006338&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    <script>
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WG9W8DM5');
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WG9W8DM5');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG9W8DM5"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Navbar -->
     <nav class="navbar">
       <div class="nav-items1">Swiggy Delivery Partner</div>
@@ -63,16 +68,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <img src="logo-appbar.webp" alt="Swiggy Logo" class="form-logo" />
             <h1>Swiggy Delivery Partner</h1>
           </div>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Name"
-            required
-          />
+          <input type="text" id="name" name="name" placeholder="Name" required />
           <select id="city" name="city" required>
             <option value="" disabled selected>Select Your City</option>
-            <!-- Populate these options with the list of cities -->
             <option value="Delhi">Delhi</option>
             <option value="Mumbai">Mumbai</option>
             <option value="Bangalore">Bangalore</option>
@@ -104,13 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <option value="Thane">Thane</option>
             <option value="Mysore">Mysore</option>
           </select>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Phone Number"
-            required
-          />
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
           <button type="submit">Submit</button>
         </form>
       </section>
@@ -121,17 +113,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <h2>Get started in <span class="highlight">3 steps</span></h2>
           <ol class="steps-list">
             <li>1) Download Swiggy rider app from app store</li>
-            <li>b) Fill in details and documents</li>
-            <li>c) Collect bag and t-shirt</li>
+            <li>2) Fill in details and documents</li>
+            <li>3) Collect bag and t-shirt</li>
           </ol>
-          <button class="get-started-btn">
-            Get Started by filling up the form
-          </button>
-          <img
-            src ="https://play-lh.googleusercontent.com/s0JLCfh27w6kxCd81YnGGZeGIc8KdKx_7d2QEZSlMdXPBYFsN8mAUzW9p1s47QCVGb4"
-            alt="Get Started Image"
-            class="steps-img"
-          />
+          <button class="get-started-btn">Get Started by filling up the form</button>
+          <img src="https://play-lh.googleusercontent.com/s0JLCfh27w6kxCd81YnGGZeGIc8KdKx_7d2QEZSlMdXPBYFsN8mAUzW9p1s47QCVGb4" alt="Get Started Image" class="steps-img" />
         </div>
       </section>
 
@@ -141,38 +127,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="faq-item">
           <h3>1. How can I become a delivery partner with Swiggy?</h3>
           <p>
-            You can join Swiggy in 3 easy steps: <br />• Download the app
-            <br />• Complete your profile and upload documents <br />• Get your
-            uniform and bag delivered at your home <br />• Deliver orders and
-            Earn big with Swiggy
+            You can join Swiggy in 3 easy steps: <br />• Download the app <br />• Complete your profile and upload documents <br />• Get your uniform and bag delivered at your home <br />• Deliver orders and Earn big with Swiggy
           </p>
         </div>
         <div class="faq-item">
           <h3>2. What documents and details do I need to join Swiggy?</h3>
           <p>
-            You need the following documents. In case you don’t have any of
-            these documents, don’t worry - you can share them later: <br />•
-            Aadhar Card or Voter Card <br />• PAN Card <br />• Driving licence
-            (not needed for cycle) <br />• Bank details
+            You need the following documents. In case you don’t have any of these documents, don’t worry - you can share them later: <br />• Aadhar Card or Voter Card <br />• PAN Card <br />• Driving licence (not needed for cycle) <br />• Bank details
           </p>
         </div>
         <div class="faq-item">
-          <h3>
-            3. Is there any joining fee to become a delivery partner in Swiggy?
-          </h3>
+          <h3>3. Is there any joining fee to become a delivery partner in Swiggy?</h3>
           <p>
-            The onboarding fee is around ₹1500 and it varies from city to city.
-            This fee is deducted in multiple installments after your onboarding.
+            The onboarding fee is around ₹1500 and it varies from city to city. This fee is deducted in multiple installments after your onboarding.
           </p>
         </div>
         <div class="faq-item">
-          <h3>
-            4. What are the working hours for a delivery partner at Swiggy?
-          </h3>
+          <h3>4. What are the working hours for a delivery partner at Swiggy?</h3>
           <p>
-            Swiggy offers complete flexibility to choose your shifts. You can
-            become a part-time or a full-time delivery partner based on your
-            preference.
+            Swiggy offers complete flexibility to choose your shifts. You can become a part-time or a full-time delivery partner based on your preference.
           </p>
         </div>
       </section>
@@ -198,78 +171,70 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </div>
     </footer>
+
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Function to validate phone number
-    function isValidPhoneNumber(phoneNumber) {
-      const phoneRegex = /^\d{10}$/; // Regex for a 10-digit number
-      return phoneRegex.test(phoneNumber);
-    }
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to get UTM parameters from the URL
+        function getParameterByName(name) {
+          name = name.replace(/[\[\]]/g, "\\$&");
+          var url = window.location.href;
+          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+              results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
 
-   document.addEventListener("DOMContentLoaded", function () {
-    // Function to get UTM parameters from the URL
-    function getParameterByName(name) {
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var url = window.location.href;
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
+        // Capture UTM parameters
+        var utmSource = getParameterByName('utm_source') || 'unknown';
 
-    // Capture UTM parameters
-    var utmSource = getParameterByName('utm_source') || 'unknown';
+        // Handle form submission
+        document.getElementById("registrationForm").addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
 
-    // Handle form submission
-    document.getElementById("registrationForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
+          // Get form data
+          var name = document.getElementById("name").value;
+          var city = document.getElementById("city").value;
+          var phone = document.getElementById("phone").value;
 
-        // Get form data
-        var name = document.getElementById("name").value;
-        var city = document.getElementById("city").value;
-        var phone = document.getElementById("phone").value;
-
-        // Send form data along with UTM parameters to the server
-        fetch("https://apiswiggy.growwpaisa.com/submit", {
+          // Send form data along with UTM parameters to the server
+          fetch("https://apiswiggy.growwpaisa.com/submit", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                name: name,
-                city: city,
-                phone: phone,
-                source: utmSource,
+              name: name,
+              city: city,
+              phone: phone,
+              source: utmSource,
             }),
-        })
-        .then(response => {
+          })
+          .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+              throw new Error('Network response was not ok');
             }
             return response.json(); // Assuming the server returns JSON
-        })
-        .then(data => {
+          })
+          .then(data => {
             // Check if the submission was successful
             if (data.success) {
-                console.log("Form submitted successfully. Redirecting...");
-                // Redirect to the next page after 1 second
-                setTimeout(() => {
-                    window.location.href = "https://ride.swiggy.com/?utm_source=Appmontize1&utm_medium=Appmontize1&utm_campaign=Appmontize1&utm_id=Appmontize1&utm_term=Appmontize1";
-                }, 1000);
+              console.log("Form submitted successfully. Redirecting...");
+              // Redirect to the next page after 1 second
+              setTimeout(() => {
+                window.location.href = "https://ride.swiggy.com/?utm_source=Appmontize1&utm_medium=Appmontize1&utm_campaign=Appmontize1&utm_id=Appmontize1&utm_term=Appmontize1";
+              }, 1000);
             } else {
-                console.error("Server returned an error:", data.message);
-                alert("There was an error submitting your form. Please try again.");
+              console.error("Server returned an error:", data.message);
+              alert("There was an error submitting your form. Please try again.");
             }
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             console.error("Fetch error:", error);
             alert("There was an error submitting your form. Please check your network connection and try again.");
+          });
         });
-    });
-});
-
-</script>
-
+      });
+    </script>
   </body>
 </html>
