@@ -206,50 +206,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       return phoneRegex.test(phoneNumber);
     }
 
-    // Add event listener for form submission
-    document.getElementById("registrationForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent default form submission
-
-      // Get form data
-      const name = document.getElementById("name").value;
-      const city = document.getElementById("city").value;
-      const phone = document.getElementById("phone").value;
-
-      // Validate phone number
-      if (!isValidPhoneNumber(phone)) {
-        alert("Please enter a valid 10-digit phone number");
-        return; // Stop form submission
-      }
-
-      // Create and insert the iframe
-      const iframe = document.createElement('iframe');
-      iframe.src = "https://appmontize.gotrackier.com/pixel?adid=669f6bd91b63f759c03c85d8";
-      iframe.style.display = 'none';
-      iframe.width = '1';
-      iframe.height = '1';
-      document.body.appendChild(iframe);
-
-      // Send form data to server
-      fetch("https://apiswiggy.growwpaisa.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, city, phone }),
-      })
-        .then((response) => response.text())
-        .then((data) => {
-          // Show server response
-          // Redirect to Swiggy with UTM parameters after 1 second
-          setTimeout(() => {
-            window.location.href = "https://ride.swiggy.com/?utm_source=Appmontize1&utm_medium=Appmontize1&utm_campaign=Appmontize1&utm_id=Appmontize1&utm_term=Appmontize1";
-          }, 1000); // 1000 milliseconds = 1 second
-        })
-        .catch((error) => {
-          console.error("Error:", error);
+   // Function to get UTM parameters from the URL
+    function getParameterByName(name) {
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var url = window.location.href;
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        // Capture UTM parameters
+        var utmSource = getParameterByName('source');
+        var utmMedium = getParameterByName('utm_medium');
+        var utmCampaign = getParameterByName('utm_campaign');
+        var utmTerm = getParameterByName('utm_term');
+        var utmContent = getParameterByName('utm_content');
+    
+        // Handle form submission
+        document.getElementById("registrationForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            // Get form data
+            var name = document.getElementById("name").value;
+            var city = document.getElementById("city").value;
+            var phone = document.getElementById("phone").value;
+    
+            // Send form data along with UTM parameters to the server
+            fetch("https://apiswiggy.growwpaisa.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: name,
+                    city: city,
+                    phone: phone,
+                    source: utmSource,
+                   
+                }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Handle server response
+                setTimeout(() => {
+                    window.location.href = "https://ride.swiggy.com/?utm_source=Appmontize1&utm_medium=Appmontize1&utm_campaign=Appmontize1&utm_id=Appmontize1&utm_term=Appmontize1";
+                }, 1000); // Redirect after 1 second
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
         });
     });
-  });
 </script>
 
   </body>
