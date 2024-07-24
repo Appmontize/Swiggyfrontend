@@ -206,7 +206,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       return phoneRegex.test(phoneNumber);
     }
 
-   // Function to get UTM parameters from the URL
+   document.addEventListener("DOMContentLoaded", function () {
+    // Function to get UTM parameters from the URL
     function getParameterByName(name) {
         name = name.replace(/[\[\]]/g, "\\$&");
         var url = window.location.href;
@@ -216,50 +217,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
-    
-    document.addEventListener("DOMContentLoaded", function () {
-        // Capture UTM parameters
-        var utmSource = getParameterByName('source');
-        var utmMedium = getParameterByName('utm_medium');
-        var utmCampaign = getParameterByName('utm_campaign');
-        var utmTerm = getParameterByName('utm_term');
-        var utmContent = getParameterByName('utm_content');
-    
-        // Handle form submission
-        document.getElementById("registrationForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-    
-            // Get form data
-            var name = document.getElementById("name").value;
-            var city = document.getElementById("city").value;
-            var phone = document.getElementById("phone").value;
-    
-            // Send form data along with UTM parameters to the server
-            fetch("https://apiswiggy.growwpaisa.com/submit", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: name,
-                    city: city,
-                    phone: phone,
-                    source: utmSource,
-                   
-                }),
-            })
-            .then(response => response.text())
-            .then(data => {
-                // Handle server response
+
+    // Capture UTM parameters
+    var utmSource = getParameterByName('utm_source') || 'unknown';
+
+    // Handle form submission
+    document.getElementById("registrationForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        var name = document.getElementById("name").value;
+        var city = document.getElementById("city").value;
+        var phone = document.getElementById("phone").value;
+
+        // Send form data along with UTM parameters to the server
+        fetch("https://apiswiggy.growwpaisa.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: name,
+                city: city,
+                phone: phone,
+                source: utmSource,
+            }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Assuming the server returns JSON
+        })
+        .then(data => {
+            // Check if the submission was successful
+            if (data.success) {
+                console.log("Form submitted successfully. Redirecting...");
+                // Redirect to the next page after 1 second
                 setTimeout(() => {
                     window.location.href = "https://ride.swiggy.com/?utm_source=Appmontize1&utm_medium=Appmontize1&utm_campaign=Appmontize1&utm_id=Appmontize1&utm_term=Appmontize1";
-                }, 1000); // Redirect after 1 second
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+                }, 1000);
+            } else {
+                console.error("Server returned an error:", data.message);
+                alert("There was an error submitting your form. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Fetch error:", error);
+            alert("There was an error submitting your form. Please check your network connection and try again.");
         });
     });
+});
+
 </script>
 
   </body>
